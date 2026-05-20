@@ -1,0 +1,94 @@
+.holo-btn {
+  position: relative;
+  padding: 18px 60px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+
+  background: linear-gradient(
+    120deg,
+    #1a1a2e 0%,
+    #2d1b4e 20%,
+    #7c4daf 35%,
+    #e8a04d 50%,
+    #e05c97 65%,
+    #6a4de8 80%,
+    #1a1a2e 100%
+  );
+  background-size: 200% 200%;
+  animation: holoShift 4s ease infinite;
+
+  box-shadow:
+    0 0 0 1.5px rgba(180, 160, 255, 0.5),
+    0 0 0 3px rgba(120, 100, 220, 0.25),
+    0 8px 32px rgba(100, 80, 200, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  overflow: hidden;
+}
+
+.holo-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  pointer-events: none;
+}
+
+.holo-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  border-radius: 50px 50px 60% 60%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.17) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.holo-btn:hover {
+  transform: translateY(-2px) scale(1.025);
+  box-shadow:
+    0 0 0 1.5px rgba(200, 180, 255, 0.7),
+    0 0 0 4px rgba(140, 110, 240, 0.3),
+    0 14px 40px rgba(120, 80, 220, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.holo-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@keyframes holoShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
